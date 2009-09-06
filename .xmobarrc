@@ -1,0 +1,19 @@
+Config { font         = "-*-dejavu sans-medium-r-*-*-11-*-*-*-*-*-*-*"  
+             , bgColor      = "#000000"
+             , fgColor      = "#FFFFFF"
+	     , position =  Bottom 
+             , lowerOnStart = False
+             , commands     = [ Run Network "eth0" ["-L","0","-H","32","--normal","white","--high","red"] 10
+                              , Run Cpu ["<cpu0>/<cpu1>","-L","3","-H","50","--normal","white","--high","red"]   10
+                              , Run Cpu ["<cpu0>","-L","3","-H","50","--normal","white","--high","red"]  10
+				,Run Com "sh" ["~/bin/updates.sh"] "updates" 600
+                              , Run Memory ["-t","Mem: <usedratio>%", "--normal","white","--high","red"] 10
+				, Run Com "mpc" ["status", "--format", "\"%artist% - %title%\""] "music" 20 
+				, Run Date "%a %b %_d %H:%M" "date" 10
+			      , Run Com "sh" ["~/bin/mail.sh"] "mail" 200			      
+                              , Run StdinReader
+                              ]
+             , sepChar      = "%"
+             , alignSep     = "}{"
+	     , template = " %StdinReader% }{ %music%<fc=#429942> |</fc> Mail: <fc=#FFFFFF>%mail%</fc> <fc=#429942>| </fc>Updates: <fc=#FFFFFF>%updates%</fc><fc=#429942> | </fc>%cpu%<fc=#429942> |</fc> %memory%<fc=#429942> |</fc> %eth0%<fc=#429942> |</fc> %date%"
+             }
