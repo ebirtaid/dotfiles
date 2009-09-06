@@ -1,0 +1,1 @@
+/home/ebirtaid/.irssi/scripts/bantime.pl
