@@ -1,0 +1,42 @@
+background yes
+use_xft yes
+xftfont Zekton:size=8
+xftalpha 0.1
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+update_interval 0.5
+total_run_times 0
+double_buffer yes
+minimum_size 200 200
+maximum_width 200
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_borders_color 1793D1
+default_color white
+default_shade_color black
+default_outline_color 1793D1
+alignment bottom_left
+gap_x 4
+gap_y 1
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale no
+use_spacer right
+
+TEXT
+${color 1793D1}${font openlogos:size=28}A${font Zekton:bold:size=20}${color white} Arch${font Zekton:size=20}${color 1793D1}Linux$font
+${color 1793D1}${font Zekton:size=10}${time %a-%D}     ${time %I:%M:%S %p}$font
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>$color
+Kernel $kernel $machine
+Uptime ${uptime}
+Temp ${acpitemp}C
+${font Zekton:size=10}${color 1793D1}Intel Core 2 Duo P8400${color}${font}
+Core0: ${freq_g cpu0}Ghz${alignr}Core1: ${freq_g cpu1}Ghz
+${color 1793D1}${cpugauge cpu1 30,60}${color}${alignr}${color 1793D1}${cpugauge cpu2 30,60}
+${font Zekton:bold:size=8}     ${cpu}%${alignr}${cpu}%     ${color}

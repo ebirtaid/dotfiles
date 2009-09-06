@@ -1,0 +1,1 @@
+/home/ebirtaid/build/dwm/config.h

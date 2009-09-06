@@ -1,0 +1,8 @@
+background no                                                                                                                               
+out_to_console yes                                                                                                                          
+update_interval 1                                                                                                                           
+total_run_times 0                                                                                                                           
+use_spacer none                                                                                                                             
+                                                                                                                                             
+TEXT                                                                                                                                        
+($mpd_percent%)  $mpd_smart   ::   ${execi 300 /home/ebirtaid/weather.sh 31030}   ::   Mail - ${new_mails /home/ebirtaid/inbox/} New @ ${execi 9000000 hostname}   ::   CPU - $cpu%  RAM - $memperc%  ${acpitempf}F   ::   Up - ${upspeed eth0}K/s | Down - ${downspeed eth0}K/s   ::   ${time %A %e %B   ::   %H:%M:%S} 

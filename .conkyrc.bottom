@@ -1,0 +1,35 @@
+background yes
+use_xft yes
+xftfont Deja Vu Sans Mono Book:size=8
+xftalpha 0.8
+out_to_console no
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,above,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 1280 120
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_margin 4
+border_width 0
+default_color black
+default_shade_color black
+default_outline_color black
+alignment bottom_left
+gap_x 2
+gap_y 2
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale no
+use_spacer no
+
+TEXT
+${color white}$mpd_smart${alignc 35}C: $cpu% R:$memperc% ${acpitempf}F${alignc -232}D: ${downspeed eth0}k/s U: ${upspeed eth0}k/s ${color white}${alignr}${time %a %e %B} ${time %H:%M:%S}  
