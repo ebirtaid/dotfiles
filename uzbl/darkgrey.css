@@ -1,0 +1,28 @@
+* {
+    color:          #777777 !important;
+    background:        #111111 !important;
+}
+h1 {
+    color:          #BB0000 !important;
+}
+h2 {
+    color:          orange !important;
+}
+h3 {
+    color:          #00BB00 !important;
+}
+h4 {
+    color:          #BBBB00 !important;
+}
+a:link {
+    text-decoration:    none;
+    font-weight:    bold;
+    color:    #008888 !important;
+    background:    none !important;
+}
+a:visited {
+    text-decoration:    none;
+    font-weight:    bold;
+    color:    #880088 !important;
+    background:    none !important;
+}
