@@ -1,0 +1,100 @@
+diff --git a/config.h b/config.h
+index d2f56cc..15232d2 100644
+--- a/config.h
++++ b/config.h
+@@ -93,6 +93,7 @@ Key keys[] = {
+ 	{ MOD, KEY_PPAGE, { scrollback,     { "-1" }                    } },
+ 	{ MOD, KEY_NPAGE, { scrollback,     { "1"  }                    } },
+ 	{ MOD, '?',       { create,         { "man dvtm", "dvtm help" } } },
++	{ MOD, 'B',       { togglebell,     { NULL }                    } },
+ };
+ 
+ /* possible values for the mouse buttons are listed below:
+diff --git a/dvtm.c b/dvtm.c
+index 739115e..b43db7f 100644
+--- a/dvtm.c
++++ b/dvtm.c
+@@ -53,6 +53,7 @@ struct Client {
+ 	short int h;
+ 	bool minimized;
+ 	bool died;
++	bool bell;
+ 	Client *next;
+ 	Client *prev;
+ };
+@@ -124,6 +125,7 @@ static void scrollback(const char *args[]);
+ static void redraw(const char *args[]);
+ static void zoom(const char *args[]);
+ static void lock(const char *key[]);
++static void togglebell(const char *key[]);
+ 
+ #ifdef CONFIG_STATUSBAR
+ enum { ALIGN_LEFT, ALIGN_RIGHT };
+@@ -589,6 +591,11 @@ lock(const char *args[]) {
+ }
+ 
+ static void
++togglebell(const char *args[]) {
++	madtty_togglebell(sel->term);
++}
++
++static void
+ killclient(const char *args[]) {
+ 	if (!sel)
+ 		return;
+diff --git a/madtty.c b/madtty.c
+index 31bbb87..57ea709 100644
+--- a/madtty.c
++++ b/madtty.c
+@@ -100,6 +100,7 @@ struct madtty_t {
+     unsigned graphmode  : 1;
+     unsigned curshid    : 1;
+     unsigned curskeymode: 1;
++    unsigned bell       : 1;
+ 
+     /* geometry */
+     int rows, cols;
+@@ -768,6 +769,8 @@ static void madtty_process_nonprinting(madtty_t *t, wchar_t wc)
+ 
+       case C0_BEL:
+         /* do nothing for now... maybe a visual bell would be nice? */
++        if(t->bell)
++            beep();
+         break;
+ 
+       case C0_BS:
+@@ -1184,6 +1187,21 @@ void madtty_noscroll(madtty_t *t)
+ 	madtty_scroll(t, t->scroll_amount);
+ }
+ 
++void madtty_bell(madtty_t *t)
++{
++    t->bell = true;
++}
++
++void madtty_nobell(madtty_t *t)
++{
++    t->bell = false;
++}
++
++void madtty_togglebell(madtty_t *t)
++{
++    t->bell = !t->bell;
++}
++
+ /******************************************************/
+ 
+ pid_t madtty_forkpty(madtty_t *t, const char *p, const char *argv[], const char *env[], int *pty)
+diff --git a/madtty.h b/madtty.h
+index 6a9e4ae..cd1375a 100644
+--- a/madtty.h
++++ b/madtty.h
+@@ -75,4 +75,8 @@ void madtty_color_set(WINDOW *win, short fg, short bg);
+ void madtty_scroll(madtty_t *, int rows);
+ void madtty_noscroll(madtty_t *);
+ 
++void madtty_bell(madtty_t *);
++void madtty_nobell(madtty_t *);
++void madtty_togglebell(madtty_t *);
++
+ #endif /* MADTTY_MADTTY_H */
