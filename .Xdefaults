@@ -1,0 +1,91 @@
+URxvt*termName: rxvt
+! the allowSendEvents setting is the most important line in this file
+! without it, applications in an xterm won't be able to receive the
+! C-t keystroke.  For the ctags and vi programs, this is fatal.
+! the two numerical Border settings make xterm "look" nice under
+! ratpoison.  the other settings are my personal preferences.
+!#*.font: -terminus-*-*-*-*-14-*-*-*-*-*-*-*
+XTerm*faceName: DejaVu Sans Mono:pixelsize=10
+
+XTerm*allowSendEvents: true
+XTerm*internalBorder:  0
+XTerm*borderColor:     black
+XTerm*borderWidth:     0
+XTerm*multiScroll:     true
+XTerm*utmpInhibit:     false
+XTerm*jumpScroll:      true
+XTerm*loginShell:      true
+XTerm*visualBell:      false
+XTerm*waitForMap:      true
+XTerm*saveLines:       8192
+XTerm*scrollBar:       false
+
+Xcursor*theme:  Chameleon-Anthracite-Small
+!URxvt*font:                     xft:Dejavu Sans Mono:pixelsize=10
+URxvt*font:                     xft:Terminus:pixelsize=8
+URxvt.background: #000000
+URxvt*faceSize: 8
+Xft.antialias:            true
+Xft.hinting: 1
+Xft.dpi: 100:unscaled
+!Xft.dpi: 96
+Xft.rgba: rgba
+!Xft.rgba: rgb
+Xft.hintstyle: hintslight
+!Xft.hintstyle: 3
+URxvt.foreground: white
+URxvt.scrollBar:	false
+!URxvt.borderLess: true
+!URxvt.borderColor: #000000
+!#URxvt*color0:      #000000
+
+!URxvt*color0:	   #000000
+!URxvt*color1:      #9e1828
+!URxvt*color2:      #aece92
+!URxvt*color3:      #968a38
+!URxvt*color4:      #414171
+!URxvt*color5:      #963c59
+!URxvt*color6:      #418179
+!URxvt*color7:      #bebebe
+!URxvt*color8:      #666666
+!URxvt*color9:      #cf6171
+!URxvt*color10:     #c5f779
+!URxvt*color11:     #fff796
+!URxvt*color12:     #4186be
+!URxvt*color13:     #cf9ebe
+!URxvt*color14:     #71bebe
+!URxvt*color15:     #ffffff
+
+! Black
+*color0:      #121212
+*color8:      #474747
+! Red
+*color1:      #803232
+*color9:      #982B2B
+! Green
+*color2:      #5B762F
+*color10:     #89B83F
+! Yellow
+*color3:      #AA9943
+*color11:     #EFEF60
+! Blue
+*color4:      #324C80
+*color12:     #2B4F98
+! Purple
+*color5:      #5F5A90
+*color13:     #826AB1
+! Cyan
+*color6:      #92B19E
+*color14:     #A1CDCD
+! White
+*color7:      #FFFFFF
+*color15:     #DEDEDE
+
+URxvt.perl-ext-common: default,matcher
+URxvt.matcher.button: 1
+
+URxvt.urgentOnBell: true
+
+XTerm*eightBitInput:   false
+XTerm*metaSendsEscape: true
+
