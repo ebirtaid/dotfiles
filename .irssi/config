@@ -111,10 +111,8 @@ aliases = {
   "MANUAL-WINDOWS" = "set use_status_window off;set autocreate_windows off;set autocreate_query_level none;set autoclose_windows off;set reuse_unused_windows on;save";
   EXEMPTLIST = "mode $C +e";
   ATAG = "WINDOW SERVER";
-  im = "set use_proxy off;connect 127.0.0.1;set use_proxy on;wait 5000 \"msg nickserv identify asd2qwe2\"";
   mpc = "exec mpc --format \"[[%artist% - ]%title% / %album%]|[%file%]\"";
   np = "mloud";
-  id = "msg nickserv identify asd2qwe2";
   gone = "away Thoughts are the shadows of our feelings - always darker, emptier and simpler.";
   free = "exec - free -m";
   arch = "set use_proxy off;connect irc.freenode.net;set use_proxy on";
@@ -248,7 +246,6 @@ settings = {
     use_proxy = "yes";
     proxy_port = "31030";
     proxy_address = "66.252.30.2";
-    proxy_password = "asd2qwe2";
     timestamp_format = "%H:%M:%S";
   };
   "fe-text" = {
@@ -308,7 +305,6 @@ settings = {
   };
   "irc/core" = { alternate_nick = "diat"; };
   proxy = {
-    irssiproxy_password = "asd2qwe2";
     irssiproxy_ports = "serenidad=2778";
   };
 };
